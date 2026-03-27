@@ -1,0 +1,60 @@
+// =============================================
+// Nonprofit Alliance — Shared JS
+// =============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Mobile Navigation Toggle ---
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.contains('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // --- Scroll Fade-In ---
+  const fadeElements = document.querySelectorAll('.fade-in');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeElements.forEach((el, i) => {
+      el.style.transitionDelay = `${i * 60}ms`;
+      observer.observe(el);
+    });
+  } else {
+    // Fallback: show everything
+    fadeElements.forEach(el => el.classList.add('visible'));
+  }
+
+  // --- Active Nav Link ---
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+});
