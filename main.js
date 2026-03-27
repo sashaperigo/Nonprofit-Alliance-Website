@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fadeElements.forEach((el, i) => {
-      el.style.transitionDelay = `${i * 60}ms`;
+      el.style.transitionDelay = `${i * 20}ms`;
       observer.observe(el);
     });
   } else {
