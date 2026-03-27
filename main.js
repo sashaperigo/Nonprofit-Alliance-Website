@@ -15,6 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+  // --- Load Shared Footer ---
+  const footerPlaceholder = document.getElementById('site-footer');
+  if (footerPlaceholder) {
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(html => { footerPlaceholder.outerHTML = html; });
+  }
+
   function initHeader() {
     // --- Mobile Navigation Toggle ---
     const hamburger = document.querySelector('.hamburger');
