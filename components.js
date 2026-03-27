@@ -4,7 +4,7 @@ const HEADER_HTML = `
 <header class="site-header">
   <div class="header-inner">
     <a href="index.html" class="header-logo">
-      <span>Nonprofit Alliance of Homelessness &amp;<br>Housing Providers of Alameda County</span>
+      <span>Nonprofit Alliance of Homelessness &amp; <br>Housing Providers of Alameda County</span>
     </a>
     <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

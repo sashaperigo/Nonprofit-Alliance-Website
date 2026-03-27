@@ -626,13 +626,14 @@ p {
   }
 
   .members-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    margin-left: auto;
   }
 
   .nav-links {
@@ -653,24 +654,70 @@ p {
   }
 
   .hero {
-    padding: 64px 0 56px;
+    padding: 40px 0 40px;
   }
 
   .hero__logo {
-    width: 120px;
+    width: 180px;
   }
 
   .section {
-    padding: 64px 0;
+    padding: 56px 0;
   }
 
+  /* Header: let text fill available space naturally */
   .header-logo span {
-    font-size: 0.72rem;
-    max-width: 160px;
+    font-size: 0.68rem;
+    max-width: 220px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Hide forced line break — let text wrap naturally on small screens */
+  .header-logo span br {
+    display: none;
   }
 
   .footer-inner {
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 10px;
+  }
+
+  /* Hide nav links, show only email */
+  .footer-links li:not(:first-child) {
+    display: none;
+  }
+
+  /* Reorder: email first, copyright second */
+  .footer-links {
+    order: -1;
+  }
+
+  /* Prepend "Contact us: " before the email link */
+  .footer-links li:first-child::before {
+    content: 'Contact us: ';
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+}
+
+@media (max-width: 480px) {
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .header-inner {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
   }
 }
