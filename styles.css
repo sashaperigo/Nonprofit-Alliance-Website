@@ -89,6 +89,11 @@ p {
   max-width: 680px;
 }
 
+.purpose-section__inner p,
+.content-block p {
+  max-width: 100%;
+}
+
 /* --- Layout Utilities --- */
 .container {
   max-width: var(--max-width);
