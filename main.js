@@ -4,23 +4,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- Load Shared Header ---
+  // --- Inject Shared Header ---
   const headerPlaceholder = document.getElementById('site-header');
   if (headerPlaceholder) {
-    fetch('header.html')
-      .then(res => res.text())
-      .then(html => {
-        headerPlaceholder.outerHTML = html;
-        initHeader();
-      });
+    headerPlaceholder.outerHTML = HEADER_HTML;
+    initHeader();
   }
 
-  // --- Load Shared Footer ---
+  // --- Inject Shared Footer ---
   const footerPlaceholder = document.getElementById('site-footer');
   if (footerPlaceholder) {
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(html => { footerPlaceholder.outerHTML = html; });
+    footerPlaceholder.outerHTML = FOOTER_HTML;
   }
 
   function initHeader() {
